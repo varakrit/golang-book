@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"strconv"
+	"fmt"
+)
 
 func main() {
 	for number := 1; number <= 100; number++ {
@@ -16,6 +19,6 @@ func fizzBuzz(number int) string {
 	} else if number%5 == 0 {
 		return "Buzz"
 	} else {
-		return ""
+		return strconv.Itoa(number)
 	}
 }
