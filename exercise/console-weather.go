@@ -11,6 +11,11 @@ func main() {
 
 func weatherCelsius(celsius int, msg string) string {
 
+	tenth := celsius/10
+	oneth := celsius%10
+
+
+	
 	display := ""
 
 	if celsius == 25 {
