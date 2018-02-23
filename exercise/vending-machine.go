@@ -25,8 +25,15 @@ func (vm VendingMachine) GetInsertedMoney() int {
 	return vm.money
 }
 
-func (vm VendingMachine) SelectSD() string {
+func (vm *VendingMachine) SelectSD() string {
 	vm.items = "SD"
+	vm.money = vm.money-18
+	return vm.items
+}
+
+func (vm *VendingMachine) SelectCC() string {
+	vm.items = "CC"
+	vm.money = vm.money-12
 	return vm.items
 }
 
@@ -49,7 +56,7 @@ func main() {
 	fmt.Println("Inserted Money:", vm.GetInsertedMoney())
 	can := vm.SelectSD()
 	fmt.Println(can) // SD
-	/*
+	
 	// Buy CC(canned coffee) without exact change
 	vm.InsertCoin("T")
 	vm.InsertCoin("T")
@@ -57,6 +64,7 @@ func main() {
 	can = vm.SelectCC()
 	fmt.Println(can)
 
+	/*
 	// Start adding change but hit coin return
 	vm.InsertCoin("T")
 	vm.InsertCoin("T")
