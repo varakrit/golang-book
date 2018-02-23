@@ -8,7 +8,7 @@ type VendingMachine struct {
 	money int
 }
 
-func (vm VendingMachine) InsertCoin(coin string) {
+func (vm *VendingMachine) InsertCoin(coin string) {
 	vm.coins = append(vm.coins, coin)
 	if coin=="T" {
 		vm.money = vm.money+10
