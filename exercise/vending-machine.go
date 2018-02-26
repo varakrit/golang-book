@@ -4,7 +4,7 @@ import "fmt"
 
 type VendingMachine struct {
 	coins []string
-	items string
+	items []string
 	money int
 }
 
@@ -25,26 +25,26 @@ func (vm VendingMachine) GetInsertedMoney() int {
 	return vm.money
 }
 
-func (vm *VendingMachine) SelectSD() string {
-	vm.items = "SD"
+func (vm *VendingMachine) SelectSD() []string {
+	vm.items = append(vm.items,"SD")
 	vm.money = vm.money-18
 	return vm.items
 }
 
-func (vm *VendingMachine) SelectCC() string {
-	vm.items = "CC"
+func (vm *VendingMachine) SelectCC() []string {
+	vm.items = append(vm.items,"CC")
 	vm.money = vm.money-12
 	return vm.items
 }
 
-func NewVendingMachine(coins []string, items string, money int) *VendingMachine {
+func NewVendingMachine(coins []string, items []string, money int) *VendingMachine {
 	return &VendingMachine{coins, items, money}
 }
 
 func main() {
 
 	money := 0
-	items := ""
+	items := make([]string, 5)
 	coins := make([]string, 5)
 	vm := NewVendingMachine(coins, items, money)
 
